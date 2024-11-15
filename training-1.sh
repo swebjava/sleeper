@@ -1,4 +1,4 @@
-cat << 'EOF' > trainingjob.sh
+cat << 'EOF' > training-1.sh
 #!/bin/bash
 
 aws sagemaker create-training-job --training-job-name 1s --region af-south-1 --algorithm-specification TrainingImage=$ACCOUNT_ID.dkr.ecr.af-south-1.amazonaws.com/uyah:latest,TrainingInputMode=Pipe --role-arn $ROLE_ARN --resource-config InstanceType=ml.c6i.4xlarge,InstanceCount=2,VolumeSizeInGB=10,KeepAlivePeriodInSeconds=60 --stopping-condition MaxRuntimeInSeconds=432000 --output-data-config S3OutputPath=s3://$ACCOUNT_ID/hjhj/
